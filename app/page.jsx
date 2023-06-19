@@ -7,7 +7,8 @@ const Home = () => {
   const [userName,setUserName] =useState('');
   const router = useRouter();
   return (
-    <form className="h-screen flex flex-col justify-center items-center">
+    <form className="flex flex-col items-center w-full">
+       
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-1/3">
           <label
@@ -39,6 +40,7 @@ const Home = () => {
           </button>
         </div>
       </div>
+    
     </form>
   );
 };
