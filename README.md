@@ -1,4 +1,4 @@
-This is a Next.js app.
+This is my first Next.js app. I am currently learning this framework.
 
 ## Getting Started
 
