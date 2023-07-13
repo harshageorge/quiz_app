@@ -7,7 +7,7 @@ const Home = () => {
   const [userName,setUserName] =useState('');
   const router = useRouter();
   return (
-    <form className="flex flex-col items-center w-full">
+    <form className="h-screen flex flex-col items-center justify-center">
        
       <div className="md:flex md:items-center mb-6">
         <div className="md:w-1/3">

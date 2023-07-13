@@ -5,18 +5,21 @@ import { useRouter } from "next/navigation";
 export default function Quiz() {
   const router = useRouter();
   const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(1);
-  //   const [showScore, setShowScore] = useState(false);
-  //   const [score, setScore] = useState(0);
-  const handleAnswerButtonClick = (answerOption) => {
- const nextQuestion = currentQuestion + 1;
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+  const [score, setScore] = useState(0);
+  const handleAnswerButtonClick = (isCorrect) => {
+    if (isCorrect) {
+      console.log("correct");
+      setScore(score + 1);
+    }
+    const nextQuestion = currentQuestion + 1;
     setCurrentQuestion(nextQuestion);
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      alert('you reached the end of the quiz');
+      setShowScore(true);
     }
- 
   };
   useEffect(() => {
     const fetchPosts = async () => {
@@ -30,15 +33,33 @@ export default function Quiz() {
   }, []);
 
   return (
-    <div class="flex flex-row h-screen justify-evenly">
-      <div class="m-auto">
-        <div className="question-text">{questions[currentQuestion]?.questionText}</div>
-        <div className="answer-section">
-          {questions[currentQuestion]?.answerOptions.map((answerOption, index) => (
-            <button class="bg-blue-500" onClick={() => handleAnswerButtonClick()}>{answerOption.answerText}</button>
-          ))}
+    <div className="flex flex-row h-screen justify-evenly">
+      {showScore ? (
+        <div className="score-section">
+          You scored {score} out of {questions.length}
         </div>
-      </div>
+      ) : (
+        <div className="m-auto">
+          <div className="question-text">
+            {questions[currentQuestion]?.questionText}
+          </div>
+          <div className="answer-section">
+            {questions[currentQuestion]?.answerOptions.map(
+              (answerOption, index) => (
+                <button
+                  key={index}
+                  className="bg-blue-500"
+                  onClick={() =>
+                    handleAnswerButtonClick(answerOption.isCorrect)
+                  }
+                >
+                  {answerOption.answerText}
+                </button>
+              )
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

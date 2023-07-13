@@ -1,30 +1,30 @@
 export async function GET (request){
     const questions = [
 		{
-			questionText: 'What is the capital of France?',
+			questionText: 'What was the first sport played on the moon?',
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ answerText: 'Frisbee', isCorrect: false },
+				{ answerText: 'Soccer', isCorrect: false },
+				{ answerText: 'Golf', isCorrect: true },
+				{ answerText: 'Bocce ball', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'Who is CEO of Tesla?',
+			questionText: 'Where did the powers of Spiderman come from?',
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
+				{ answerText: 'He was born with them', isCorrect: false },
+				{ answerText: 'He was bitten by a radioactive spider', isCorrect: true },
+				{ answerText: 'He went through a scientific experiment', isCorrect: false },
+				{ answerText: 'He woke up with them after a dream', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'The iPhone was created by which company?',
+			questionText: 'Which company is known for publishing the Mario video game?',
 			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
+				{ answerText: 'Xbox', isCorrect: false },
+				{ answerText: 'Nintendo', isCorrect: true },
+				{ answerText: 'SEGA', isCorrect: false },
+				{ answerText: 'Electronic Arts', isCorrect: false },
 			],
 		},
 		{
@@ -34,6 +34,24 @@ export async function GET (request){
 				{ answerText: '4', isCorrect: false },
 				{ answerText: '6', isCorrect: false },
 				{ answerText: '7', isCorrect: true },
+			],
+		},
+		{
+			questionText: 'Which sea creature has three hearts?',
+			answerOptions: [
+				{ answerText: 'Shark', isCorrect: false },
+				{ answerText: 'Jellyfish', isCorrect: false },
+				{ answerText: 'Stingray', isCorrect: false },
+				{ answerText: 'Octopus', isCorrect: true },
+			],
+		},
+		{
+			questionText: 'Where did the croissant originate?',
+			answerOptions: [
+				{ answerText: 'France', isCorrect: false },
+				{ answerText: 'Austria', isCorrect: true },
+				{ answerText: 'Turkey', isCorrect: false },
+				{ answerText: 'Tokyo', isCorrect: false },
 			],
 		},
 	];
