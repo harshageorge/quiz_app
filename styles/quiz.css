@@ -10,6 +10,13 @@
     justify-content: space-evenly;
   } */
 
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
 .question-section {
     width: 100%;
     position: relative;
@@ -22,6 +29,29 @@
     justify-content: space-between;
   }
 
+  .score-section {
+    display: flex;
+    font-size: 24px;
+    align-items: center;
+  }
+  
+  .question-section {
+    width: 100%;
+    position: relative;
+  }
+  
+  .question-count {
+    margin-bottom: 20px;
+  }
+  
+  .question-count span {
+    font-size: 28px;
+  }
+  
+  .question-text {
+    margin-bottom: 12px;
+  }
+  
  button {
     width: 100%;
     font-size: 16px;

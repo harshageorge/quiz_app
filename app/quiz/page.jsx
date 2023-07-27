@@ -22,26 +22,35 @@ export default function Quiz() {
     }
   };
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch("/api/users");
-      const data = await response.json();
-      console.log(data);
-      setQuestions(data);
-    };
+    const fetchPosts = () => {
+    fetch("/api/users").then(response => {
+        return response.json()
+      })
+      .then(data => {
+        setQuestions(data);
+      })
+      };
 
     fetchPosts();
   }, []);
 
   return (
-    <div className="flex flex-row h-screen justify-evenly">
+    <>
+     {questions.length > 0 && (
+    <div className="flex flex-row justify-evenly bg-sky-500 max-w-md p-8 rounded-md">
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {questions.length}
         </div>
       ) : (
-        <div className="m-auto">
-          <div className="question-text">
-            {questions[currentQuestion]?.questionText}
+          <>
+          <div className="question-section">
+            <div className="question-count">
+              <span>Question {currentQuestion + 1}</span>/{questions.length}
+            </div>
+            <div className="question-text">
+              {questions[currentQuestion]?.questionText}
+            </div>
           </div>
           <div className="answer-section">
             {questions[currentQuestion]?.answerOptions.map(
@@ -58,8 +67,10 @@ export default function Quiz() {
               )
             )}
           </div>
-        </div>
+          </>
       )}
     </div>
+     )}
+    </>
   );
 }
