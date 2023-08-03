@@ -3,11 +3,16 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Quiz() {
-  const router = useRouter();
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const router = useRouter();
+  console.log(router);
+  // const {
+  //   query: { data },
+  //   } = router;
+  // console.log(data);
   const handleAnswerButtonClick = (isCorrect) => {
     if (isCorrect) {
       console.log("correct");

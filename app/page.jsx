@@ -3,9 +3,11 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 
+
 const Home = () => {
-  const [userName,setUserName] =useState('');
+  const [userName, setUserName] =useState('');
   const router = useRouter();
+
   return (
     <form className="h-screen flex flex-col items-center justify-center">
        
@@ -34,8 +36,9 @@ const Home = () => {
           <button
             className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             type="button"
-            onClick={()=>router.push('/quiz')}
-          >
+            onClick={()=>
+              router.push(`/quiz/${userName}`)}
+         >
             Start Quiz
           </button>
         </div>
